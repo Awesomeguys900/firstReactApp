@@ -1,0 +1,86 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.box {
+  margin-top: 10px;
+  padding: 20px;
+  width: 500px;
+  height: auto;
+  background: #2a2d33;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.inputStyle {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+}
+
+.inputStyle input,
+.inputStyle textarea,
+.inputStyle label {
+  margin-bottom: 10px;
+  width: auto;
+}
+
+.inputStyle label {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+textarea {
+  resize: vertical;
+  width: 100% !important;
+  padding: 10px;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+
+.experiencesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: start;
+}
+
+.experiences {
+  padding: 10px;
+  margin: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #333;
+  color: #fff;
+  border-radius: 4px;
+  max-width: 300px;
+}
+
+.experiences button {
+  margin-left: 10px;
+  background-color: #555;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.experiences:hover {
+  background-color: #444;
+}
+
+.experiences,
+.experiences button {
+  transition: background-color 0.3s;
+}
