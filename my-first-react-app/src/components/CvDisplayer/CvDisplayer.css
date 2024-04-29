@@ -1,0 +1,52 @@
+/* CvDisplay.css */
+.cvContainer {
+  background: #fff;
+  color: #333;
+  max-width: 1000px;
+  width: 600px;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.cvHeader h1 {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.cvHeader p {
+  font-size: 16px;
+  color: #666;
+  margin: 4px 0;
+}
+
+.cvSummary,
+.cvExperiences,
+.cvSkills {
+  margin-top: 20px;
+}
+
+.cvExperiences .experienceItem,
+.cvSkills ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.cvExperiences h3,
+.cvSkills li {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.cvExperiences span {
+  font-style: italic;
+  color: #666;
+  font-size: 14px;
+}
+
+.cvExperiences p,
+.cvSkills li {
+  margin-top: 4px;
+  line-height: 1.4;
+}

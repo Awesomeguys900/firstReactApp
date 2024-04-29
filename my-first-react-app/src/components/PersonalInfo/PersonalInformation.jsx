@@ -1,49 +1,54 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { CvContext } from "../CvDisplayer/CvContext";
 
 import "./PersonalInformation.css";
 
 function PersonalInformation() {
-  const [name, setName] = useState("");
-  const [city, setCity] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [mail, setMail] = useState("");
-  const [summary, setSummary] = useState("");
+  const { personalInfo, setPersonalInfo } = useContext(CvContext);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setPersonalInfo((prev) => ({ ...prev, [name]: value }));
+  };
 
   return (
     <div className="container">
       <h1> Personal Information </h1>
       <form>
         <input
+          name="name"
           placeholder="Full Name"
           type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={personalInfo.name}
+          onChange={handleInputChange}
         />
         <input
+          name="city"
           placeholder="City"
           type="text"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
+          value={personalInfo.city}
+          onChange={handleInputChange}
         />
         <input
+          name="phoneNumber"
           placeholder="Phone Number"
           type="number"
-          value={phoneNumber}
-          onChange={(e) => setPhoneNumber(e.target.value)}
+          value={personalInfo.phoneNumber}
+          onChange={handleInputChange}
         />
         <input
+          name="mail"
           placeholder="Mail"
           type="email"
-          value={mail}
-          onChange={(e) => setMail(e.target.value)}
+          value={personalInfo.mail}
+          onChange={handleInputChange}
         />
         <textarea
-          id="summaryTextBox"
-          name="summaryTextBox"
+          name="summary"
           rows="4"
           placeholder="Summary"
-          value={summary}
-          onChange={(e) => setSummary(e.target.value)}
+          value={personalInfo.summary}
+          onChange={handleInputChange}
         />
       </form>
     </div>

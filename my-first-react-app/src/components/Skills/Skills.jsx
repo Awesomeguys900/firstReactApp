@@ -1,20 +1,15 @@
-import { useState } from "react";
-
+import { useContext, useState } from "react";
+import { CvContext } from "../CvDisplayer/CvContext";
 import styles from "./Skills.module.css";
 
 function Skills() {
-  const [skills, setSkills] = useState([
-    "Communication Skills",
-    "Teamwork Skills",
-  ]);
+  const { skills, setSkills } = useContext(CvContext);
   const [newSkill, setNewSkill] = useState("");
 
   const addingSkill = () => {
-    if (newSkill) {
-      setSkills([...skills, newSkill]);
+    if (newSkill.trim() !== "") {
+      setSkills((currentSkills) => [...currentSkills, newSkill]);
       setNewSkill("");
-      console.log("Adding skill:", newSkill, "to", skills);
-      renderSkills();
     }
   };
 
@@ -28,33 +23,29 @@ function Skills() {
   };
 
   const deleteSkill = (index) => {
-    const updatedSkills = [...skills];
-    updatedSkills.splice(index, 1);
-    setSkills(updatedSkills);
+    setSkills((currentSkills) => currentSkills.filter((_, i) => i !== index));
   };
 
   return (
-    <>
-      <div className={styles.box}>
-        <div className={styles.container}>
-          <form>
-            <div className={styles.inputGroup}>
-              <input
-                id="skillsAdd"
-                placeholder="Add Skills"
-                type="text"
-                value={newSkill}
-                onChange={(e) => setNewSkill(e.target.value)}
-              />
-              <button type="button" onClick={addingSkill}>
-                add
-              </button>
-            </div>
-          </form>
-        </div>
-        <div className={styles.skillsContainer}>{renderSkills()}</div>
+    <div className={styles.box}>
+      <div className={styles.container}>
+        <form onSubmit={(e) => e.preventDefault()}>
+          <div className={styles.inputGroup}>
+            <input
+              id="skillsAdd"
+              placeholder="Add Skills"
+              type="text"
+              value={newSkill}
+              onChange={(e) => setNewSkill(e.target.value)}
+            />
+            <button type="button" onClick={addingSkill}>
+              Add
+            </button>
+          </div>
+        </form>
       </div>
-    </>
+      <div className={styles.skillsContainer}>{renderSkills()}</div>
+    </div>
   );
 }
 
