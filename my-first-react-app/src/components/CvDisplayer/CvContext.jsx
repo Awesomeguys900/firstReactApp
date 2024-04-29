@@ -7,7 +7,7 @@ export const CvProvider = ({ children }) => {
   const [personalInfo, setPersonalInfo] = useState({
     name: "John Doe",
     city: "New York",
-    phoneNumber: "(555) 123-4567",
+    phoneNumber: "5551234567",
     mail: "john.doe@example.com",
     summary:
       "Passionate and dedicated professional with over 5 years of experience in software development...",
